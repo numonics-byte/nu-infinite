@@ -60,9 +60,9 @@ export default function FloridaParallax() {
       const section = sectionRef.current;
       if (!section) return;
       const rect = section.getBoundingClientRect();
+      // No motion while scrolling in from below; once fully visible, layers move as you scroll past.
       const fullyVisible = rect.bottom <= window.innerHeight;
-      const scrolledPast = fullyVisible ? window.innerHeight - rect.bottom : 0;
-      const entered  = Math.max(0, scrolledPast);
+      const entered  = fullyVisible ? Math.max(0, window.innerHeight - rect.bottom) : 0;
       const progress = Math.min(1, entered / section.offsetHeight);
       progressRef.current = progress;
 

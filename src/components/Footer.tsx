@@ -17,11 +17,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full py-12 md:py-20 border-t-4 border-[#FF1480] overflow-hidden bg-bg">
-      {/* Background pattern layers */}
-      <div className="absolute inset-0 pattern-mesh pointer-events-none" />
-      <div className="absolute inset-0 pattern-dots opacity-15 pointer-events-none" />
-
+    <footer className="relative w-full py-12 md:py-20 border-t border-white/10 overflow-hidden bg-bg">
       {/* Giant BG text */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none"
@@ -32,22 +28,6 @@ export default function Footer() {
         </span>
       </div>
 
-      {/* Floating decorative images */}
-      {/* eslint-disable @next/next/no-img-element */}
-      <img
-        src="/float-face.png"
-        alt=""
-        aria-hidden="true"
-        className="hidden sm:block absolute top-8 right-[5%] w-14 md:w-20 animate-wiggle select-none pointer-events-none object-contain"
-      />
-      <img
-        src="/float-gator.png"
-        alt=""
-        aria-hidden="true"
-        className="hidden sm:block absolute bottom-8 left-[4%] w-12 md:w-18 animate-float select-none pointer-events-none object-contain"
-      />
-      {/* eslint-enable @next/next/no-img-element */}
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-16">
 
@@ -57,7 +37,7 @@ export default function Footer() {
               <div className="font-heading font-black uppercase tracking-tighter text-2xl md:text-3xl leading-none mb-1">
                 <span className="text-[#FF1480]">NUMONICS</span>
                 <span className="text-[#FFD700]"> + </span>
-                <span className="text-[#39FF14]">THE INFINITE</span>
+                <span className="text-white">THE INFINITE</span>
               </div>
               <p className="font-heading font-black uppercase tracking-[0.4em] text-white/30 text-xs mt-2">
                 Drum & Bass
@@ -85,7 +65,7 @@ export default function Footer() {
 
           {/* Nav links */}
           <div className="flex flex-col gap-3">
-            <p className="font-heading font-black uppercase tracking-[0.3em] text-[#8800FF] text-xs mb-2">
+            <p className="font-heading font-black uppercase tracking-[0.3em] text-[#FFD700] text-xs mb-2">
               Navigate
             </p>
             {NAV.map(({ label, href }) => (
@@ -102,11 +82,12 @@ export default function Footer() {
           {/* CTA */}
           <div className="flex flex-col gap-4 items-start md:items-end">
             <p className="font-body text-white/50 text-sm max-w-xs md:text-right leading-relaxed">
-              Heavy basslines, relentless rhythm — ready when you are.
+              Heavy basslines, relentless rhythm.
             </p>
             <a
               href="#bookings"
-              className="font-heading font-black uppercase tracking-widest text-sm text-black bg-[#FF1480] border-4 border-[#FFD700] rounded-full px-8 h-12 flex items-center hover:scale-105 transition-transform duration-200 shadow-[4px_4px_0_#8800FF]"
+              className="font-heading font-black uppercase tracking-widest text-sm text-white rounded-full px-8 h-12 flex items-center border border-[#FF1480]/40 hover:border-[#FF1480]/70 hover:bg-[#FF1480]/10 transition-all duration-200"
+              style={{ backdropFilter: "blur(12px)", background: "rgba(255,20,128,0.08)" }}
             >
               BOOK NOW
             </a>

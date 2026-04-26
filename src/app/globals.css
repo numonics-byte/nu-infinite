@@ -6,12 +6,9 @@
   --color-fg:          #FFFFFF;
   --color-muted:       #1A0830;
 
-  /* 5 accent colors rotating through sections */
-  --color-accent:      #FF1480; /* hot magenta */
-  --color-secondary:   #39FF14; /* neon green */
-  --color-tertiary:    #FFD700; /* gold */
-  --color-quaternary:  #FF4500; /* fire orange */
-  --color-quinary:     #8800FF; /* electric purple */
+  /* Two-color accent palette */
+  --color-accent:      #FF1480; /* hot magenta — primary */
+  --color-secondary:   #FFD700; /* gold — secondary */
 
   /* ── Typography ── */
   --font-heading: var(--font-outfit), "Outfit", sans-serif;
@@ -45,7 +42,7 @@
 
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(255, 20, 128, 0.5); }
-  50%       { box-shadow: 0 0 50px rgba(255, 20, 128, 0.9), 0 0 80px rgba(57, 255, 20, 0.5); }
+  50%       { box-shadow: 0 0 50px rgba(255, 20, 128, 0.9), 0 0 80px rgba(255, 215, 0, 0.25); }
 }
 
 @keyframes gradient-shift {
@@ -135,22 +132,22 @@ html {
    TEXT SHADOW UTILITIES
 ──────────────────────────────────────────────── */
 .text-shadow-sm {
-  text-shadow: 2px 2px 0px #8800FF;
+  text-shadow: 2px 2px 0px rgba(255,20,128,0.45);
 }
 .text-shadow-md {
-  text-shadow: 2px 2px 0px #8800FF, 4px 4px 0px #FF1480;
+  text-shadow: 2px 2px 0px rgba(255,20,128,0.6), 4px 4px 0px rgba(255,215,0,0.3);
 }
 .text-shadow-lg {
-  text-shadow: 2px 2px 0px #8800FF, 4px 4px 0px #FF1480, 6px 6px 0px #39FF14;
+  text-shadow: 2px 2px 0px #FF1480, 4px 4px 0px rgba(255,215,0,0.35);
 }
 .text-shadow-xl {
-  text-shadow: 4px 4px 0px #8800FF, 8px 8px 0px #FF1480, 12px 12px 0px #39FF14;
+  text-shadow: 4px 4px 0px rgba(255,20,128,0.65), 8px 8px 0px rgba(255,215,0,0.3);
 }
 .text-shadow-green {
-  text-shadow: 2px 2px 0px #FF1480, 4px 4px 0px #FFD700, 6px 6px 0px #8800FF;
+  text-shadow: 2px 2px 0px #FF1480, 4px 4px 0px rgba(255,215,0,0.4);
 }
 .text-shadow-gold {
-  text-shadow: 2px 2px 0px #FF4500, 4px 4px 0px #8800FF;
+  text-shadow: 2px 2px 0px rgba(255,20,128,0.55);
 }
 .text-shadow-orange {
   text-shadow: 2px 2px 0px #FFD700, 4px 4px 0px #FF1480;
@@ -160,7 +157,7 @@ html {
    GRADIENT TEXT
 ──────────────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(90deg, #FF1480, #FFD700, #39FF14, #8800FF, #FF1480);
+  background: linear-gradient(90deg, #FF1480, #FFD700, #FF1480);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -169,7 +166,7 @@ html {
 }
 
 .gradient-text-static {
-  background: linear-gradient(90deg, #FF1480 0%, #FFD700 50%, #39FF14 100%);
+  background: linear-gradient(90deg, #FF1480 0%, #FFD700 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -217,31 +214,29 @@ html {
   background-image: conic-gradient(
     from 90deg at 1px 1px,
     transparent 90deg,
-    rgba(136, 0, 255, 0.06) 0
+    rgba(255, 20, 128, 0.04) 0
   );
   background-size: 40px 40px;
 }
 
 .pattern-mesh {
   background:
-    radial-gradient(ellipse at 20% 30%, rgba(255, 20, 128, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(57, 255, 20, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 10%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 90%, rgba(136, 0, 255, 0.12) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 30%, rgba(255, 20, 128, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 10%, rgba(255, 20, 128, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 90%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
 }
 
 /* ────────────────────────────────────────────────
    SHADOW UTILITIES
 ──────────────────────────────────────────────── */
 .glow-accent {
-  box-shadow: 0 0 20px rgba(255, 20, 128, 0.5),
-              0 0 40px rgba(57, 255, 20, 0.3);
+  box-shadow: 0 0 20px rgba(255, 20, 128, 0.5);
 }
 
 .glow-accent-lg {
   box-shadow: 0 0 40px rgba(255, 20, 128, 0.6),
-              0 0 80px rgba(255, 215, 0, 0.4),
-              0 0 120px rgba(136, 0, 255, 0.3);
+              0 0 80px rgba(255, 215, 0, 0.3);
 }
 
 .shadow-hard {
@@ -249,17 +244,15 @@ html {
 }
 
 .shadow-hard-green {
-  box-shadow: 8px 8px 0 #39FF14, 16px 16px 0 #8800FF;
+  box-shadow: 8px 8px 0 #FFD700, 16px 16px 0 rgba(255,20,128,0.5);
 }
 
 .shadow-hard-lg {
-  box-shadow: 12px 12px 0 #39FF14,
-              24px 24px 0 #FF1480,
-              36px 36px 0 #FFD700;
+  box-shadow: 8px 8px 0 #FF1480, 16px 16px 0 rgba(255,215,0,0.4);
 }
 
 .shadow-hard-orange {
-  box-shadow: 8px 8px 0 #FF4500, 16px 16px 0 #FFD700;
+  box-shadow: 8px 8px 0 rgba(255,20,128,0.7), 16px 16px 0 rgba(255,215,0,0.4);
 }
 
 /* ────────────────────────────────────────────────
@@ -291,27 +284,27 @@ html {
     box-shadow: 4px 4px 0 #FFD700;
   }
   .shadow-hard-green {
-    box-shadow: 4px 4px 0 #39FF14;
+    box-shadow: 4px 4px 0 #FFD700;
   }
   .shadow-hard-lg {
-    box-shadow: 6px 6px 0 #39FF14, 12px 12px 0 #FF1480;
+    box-shadow: 4px 4px 0 #FF1480, 8px 8px 0 rgba(255,215,0,0.4);
   }
   .shadow-hard-orange {
-    box-shadow: 4px 4px 0 #FF4500;
+    box-shadow: 4px 4px 0 rgba(255,20,128,0.7);
   }
   .text-shadow-xl {
-    text-shadow: 2px 2px 0px #8800FF, 4px 4px 0px #FF1480;
+    text-shadow: 2px 2px 0px rgba(255,20,128,0.6);
   }
   .text-shadow-lg {
-    text-shadow: 2px 2px 0px #8800FF, 3px 3px 0px #FF1480;
+    text-shadow: 2px 2px 0px #FF1480;
   }
   .text-shadow-md {
-    text-shadow: 1px 1px 0px #8800FF;
+    text-shadow: 1px 1px 0px rgba(255,20,128,0.5);
   }
   .text-shadow-green {
     text-shadow: 1px 1px 0px #FF1480, 2px 2px 0px #FFD700;
   }
   .text-shadow-gold {
-    text-shadow: 1px 1px 0px #FF4500;
+    text-shadow: 1px 1px 0px rgba(255,20,128,0.5);
   }
 }

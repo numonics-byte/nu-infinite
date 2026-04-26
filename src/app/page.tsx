@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import FloridaParallax from "@/components/FloridaParallax";
-import TickerStrip from "@/components/TickerStrip";
 import About from "@/components/About";
 import Player from "@/components/Player";
 import Bookings from "@/components/Bookings";
@@ -13,9 +12,8 @@ export default function Home() {
     <main className="w-full min-h-screen">
       <Navigation />
       <Hero />
-      <TickerStrip />
-      <FloridaParallax />
       <About />
+      <FloridaParallax />
       <Player />
       <Bookings />
       <Footer />

@@ -26,13 +26,6 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Pattern overlays ── */}
-      <div className="absolute inset-0 pattern-dots pointer-events-none opacity-20" style={{ zIndex: 2 }} />
-      <div className="absolute inset-0 pattern-stripes pointer-events-none" style={{ zIndex: 2 }} />
-
-
-
-
       {/* ── Main content ── */}
       <div
         className="relative mt-auto px-6 md:px-12 pb-20 md:pb-28 pt-36 text-center max-w-7xl mx-auto w-full"
@@ -71,11 +64,8 @@ export default function Hero() {
         <div className="flex flex-wrap gap-4 justify-center">
           <a
             href="#music"
-            className="flex items-center gap-2 font-heading font-black uppercase tracking-widest text-sm text-white rounded-full px-10 h-14 border-4 border-[#FFD700] hover:scale-110 transition-transform duration-300 glow-accent"
-            style={{
-              background: "linear-gradient(135deg, #FF1480, #8800FF, #39FF14)",
-              boxShadow: "0 0 20px rgba(255,20,128,0.5), 8px 8px 0 #FFD700",
-            }}
+            className="flex items-center gap-2 font-heading font-black uppercase tracking-widest text-sm text-white rounded-full px-10 h-14 border border-white/20 hover:border-[#FF1480]/60 hover:bg-[#FF1480]/10 transition-all duration-300"
+            style={{ backdropFilter: "blur(16px)", background: "rgba(255,20,128,0.08)" }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <polygon points="5,3 19,12 5,21" />
@@ -84,7 +74,8 @@ export default function Hero() {
           </a>
           <a
             href="#bookings"
-            className="flex items-center font-heading font-black uppercase tracking-widest text-sm text-white rounded-full px-10 h-14 border-4 border-dashed border-[#FF1480] hover:bg-[#FF1480]/20 hover:scale-105 hover:border-solid transition-all duration-300"
+            className="flex items-center font-heading font-black uppercase tracking-widest text-sm text-white/60 rounded-full px-10 h-14 border border-white/10 hover:border-white/25 hover:text-white hover:bg-white/5 transition-all duration-300"
+            style={{ backdropFilter: "blur(16px)", background: "rgba(255,255,255,0.03)" }}
           >
             BOOK US
           </a>

@@ -11,10 +11,10 @@ const INQUIRY_TYPES = [
 ];
 
 const SERVICES = [
-  { img: "/float-speaker.png", label: "Live Performance", desc: "Full DJ sets and live PA for clubs, festivals, and events." },
-  { img: "/float-smoke.png", label: "Custom Production", desc: "Original DnB tracks built from scratch for your project." },
-  { img: "/float-florida.png", label: "Licensing & Sync", desc: "Music for film, TV, commercials, and games." },
-  { img: "/float-face.png", label: "Collaboration", desc: "Artist features, remixes, and co-production sessions." },
+  { label: "Live Performance", desc: "Full DJ sets and live PA for clubs, festivals, and events." },
+  { label: "Custom Production", desc: "Original DnB tracks built from scratch for your project." },
+  { label: "Licensing & Sync", desc: "Music for film, TV, commercials, and games." },
+  { label: "Collaboration", desc: "Artist features, remixes, and co-production sessions." },
 ];
 
 export default function Bookings() {
@@ -45,43 +45,11 @@ export default function Bookings() {
 
   return (
     <section id="bookings" className="relative py-16 md:py-36 overflow-hidden bg-bg">
-      {/* Background patterns */}
-      <div className="absolute inset-0 pattern-stripes pointer-events-none" />
-      <div className="absolute inset-0 pattern-checker pointer-events-none" />
-
-      {/* Floating decorative images */}
-      {/* eslint-disable @next/next/no-img-element */}
-      <img
-        src="/float-gun.png"
-        alt=""
-        aria-hidden="true"
-        className="hidden sm:block absolute top-16 left-[5%] w-16 md:w-24 animate-float select-none pointer-events-none object-contain"
-      />
-      <img
-        src="/float-gator.png"
-        alt=""
-        aria-hidden="true"
-        className="hidden sm:block absolute top-[35%] right-[3%] w-16 md:w-24 animate-float-reverse select-none pointer-events-none object-contain"
-      />
-      <img
-        src="/float-plant.png"
-        alt=""
-        aria-hidden="true"
-        className="hidden sm:block absolute bottom-20 left-[7%] w-14 md:w-20 animate-wiggle select-none pointer-events-none object-contain"
-      />
-      <img
-        src="/float-florida.png"
-        alt=""
-        aria-hidden="true"
-        className="hidden sm:block absolute bottom-16 right-[6%] w-16 md:w-24 animate-bounce-subtle select-none pointer-events-none object-contain"
-      />
-      {/* eslint-enable @next/next/no-img-element */}
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 
         {/* Section header */}
         <div className="text-center mb-16 md:mb-24">
-          <p className="font-heading font-black uppercase tracking-[0.4em] text-[#FF4500] text-xs mb-4">
+          <p className="font-heading font-black uppercase tracking-[0.4em] text-[#FF1480] text-xs mb-4">
             Inquiries
           </p>
           <h2 className="font-heading font-black uppercase tracking-tighter text-[clamp(3rem,9vw,7rem)] leading-none text-shadow-orange text-white mb-6">
@@ -101,25 +69,17 @@ export default function Bookings() {
             </h3>
             <div className="space-y-5">
               {SERVICES.map((svc, i) => {
-                const colors = ["#FF1480", "#39FF14", "#FFD700", "#FF4500"];
+                const colors = ["#FF1480", "#FFD700", "#FF1480", "#FFD700"];
                 const accent = colors[i % colors.length];
                 return (
                   <div
                     key={svc.label}
-                    className="flex gap-4 p-4 md:p-5 rounded-2xl border-4 transition-all duration-300 hover:scale-[1.02]"
+                    className="flex gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      borderStyle: i % 2 === 0 ? "solid" : "dashed",
-                      borderColor: `${accent}60`,
-                      backgroundColor: `${accent}0D`,
+                      borderColor: `${accent}30`,
+                      backgroundColor: `${accent}08`,
                     }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={svc.img}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-10 h-10 shrink-0 animate-wiggle object-contain"
-                    />
                     <div>
                       <h4
                         className="font-heading font-black uppercase tracking-tight text-base mb-1"
@@ -139,10 +99,13 @@ export default function Bookings() {
 
           {/* ── Right: Form ── */}
           <div
-            className="relative bg-[#1A0830]/80 backdrop-blur-sm border-4 border-[#FF1480] rounded-3xl p-6 md:p-10 shadow-hard"
-            style={{ borderStyle: "solid" }}
+            className="relative rounded-3xl p-6 md:p-10"
+            style={{
+              backdropFilter: "blur(20px)",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+            }}
           >
-            <div className="absolute inset-0 pattern-dots opacity-10 rounded-3xl pointer-events-none" />
 
             <div className="relative z-10">
               {status === "sent" ? (
@@ -150,7 +113,7 @@ export default function Bookings() {
                   <span className="block text-6xl mb-6 animate-bounce-subtle" aria-hidden="true">
                     ✦
                   </span>
-                  <h3 className="font-heading font-black uppercase tracking-tighter text-3xl text-[#39FF14] text-shadow-green mb-3">
+                  <h3 className="font-heading font-black uppercase tracking-tighter text-3xl text-[#FFD700] text-shadow-gold mb-3">
                     MESSAGE SENT
                   </h3>
                   <p className="font-body text-white/60 mb-8">
@@ -158,7 +121,8 @@ export default function Bookings() {
                   </p>
                   <button
                     onClick={() => { setStatus("idle"); setForm({ name: "", email: "", type: "", message: "" }); }}
-                    className="font-heading font-black uppercase tracking-widest text-sm text-black bg-[#39FF14] border-4 border-[#FFD700] rounded-full px-8 h-12 hover:scale-105 transition-transform cursor-pointer"
+                    className="font-heading font-black uppercase tracking-widest text-sm text-white/70 rounded-full px-8 h-12 border border-white/15 hover:border-white/30 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer"
+                    style={{ backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.04)" }}
                   >
                     Send Another
                   </button>
@@ -185,7 +149,7 @@ export default function Bookings() {
                         />
                       </div>
                       <div className="flex flex-col gap-2">
-                        <label className="font-heading font-black text-[0.65rem] uppercase tracking-[0.3em] text-[#39FF14]">
+                        <label className="font-heading font-black text-[0.65rem] uppercase tracking-[0.3em] text-[#FFD700]">
                           Email
                         </label>
                         <input
@@ -195,20 +159,20 @@ export default function Bookings() {
                           onChange={handleChange}
                           required
                           placeholder="your@email.com"
-                          className="bg-[#09090E] border-4 border-[#39FF14]/40 focus:border-[#39FF14] rounded-2xl px-5 py-3.5 text-white font-body text-base placeholder:text-white/20 outline-none transition-colors duration-200 focus:shadow-[0_0_15px_rgba(57,255,20,0.3)]"
+                          className="bg-[#09090E] border-4 border-[#FFD700]/40 focus:border-[#FFD700] rounded-2xl px-5 py-3.5 text-white font-body text-base placeholder:text-white/20 outline-none transition-colors duration-200"
                         />
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label className="font-heading font-black text-[0.65rem] uppercase tracking-[0.3em] text-[#FFD700]">
+                      <label className="font-heading font-black text-[0.65rem] uppercase tracking-[0.3em] text-[#FF1480]">
                         Inquiry Type
                       </label>
                       <select
                         name="type"
                         value={form.type}
                         onChange={handleChange}
-                        className="bg-[#09090E] border-4 border-[#FFD700]/40 focus:border-[#FFD700] rounded-2xl px-5 py-3.5 text-white font-body text-base outline-none transition-colors duration-200 appearance-none cursor-pointer focus:shadow-[0_0_15px_rgba(255,215,0,0.3)]"
+                        className="bg-[#09090E] border-4 border-[#FF1480]/40 focus:border-[#FF1480] rounded-2xl px-5 py-3.5 text-white font-body text-base outline-none transition-colors duration-200 appearance-none cursor-pointer"
                       >
                         <option value="">Select inquiry type</option>
                         {INQUIRY_TYPES.map((t) => (
@@ -220,7 +184,7 @@ export default function Bookings() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label className="font-heading font-black text-[0.65rem] uppercase tracking-[0.3em] text-[#FF4500]">
+                      <label className="font-heading font-black text-[0.65rem] uppercase tracking-[0.3em] text-[#FFD700]">
                         Message
                       </label>
                       <textarea
@@ -230,12 +194,12 @@ export default function Bookings() {
                         required
                         rows={5}
                         placeholder="Tell us about your project, event, or vision..."
-                        className="bg-[#09090E] border-4 border-[#FF4500]/40 focus:border-[#FF4500] rounded-2xl px-5 py-3.5 text-white font-body text-base placeholder:text-white/20 outline-none transition-colors duration-200 resize-none focus:shadow-[0_0_15px_rgba(255,69,0,0.3)]"
+                        className="bg-[#09090E] border-4 border-[#FFD700]/40 focus:border-[#FFD700] rounded-2xl px-5 py-3.5 text-white font-body text-base placeholder:text-white/20 outline-none transition-colors duration-200 resize-none"
                       />
                     </div>
 
                     {status === "error" && (
-                      <p className="font-body text-[#FF4500] text-sm border-2 border-[#FF4500]/40 rounded-xl px-4 py-2">
+                      <p className="font-body text-[#FF1480] text-sm border-2 border-[#FF1480]/40 rounded-xl px-4 py-2">
                         Something went wrong. Please try again.
                       </p>
                     )}
@@ -243,12 +207,8 @@ export default function Bookings() {
                     <button
                       type="submit"
                       disabled={status === "sending"}
-                      className="w-full font-heading font-black uppercase tracking-widest text-sm text-black rounded-full h-14 border-4 border-[#FFD700] hover:scale-[1.02] transition-transform duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer mt-2"
-                      style={{
-                        background: "linear-gradient(135deg, #FF1480, #8800FF, #39FF14)",
-                        boxShadow: "0 0 20px rgba(255,20,128,0.4), 6px 6px 0 #FFD700",
-                        color: "#fff",
-                      }}
+                      className="w-full font-heading font-black uppercase tracking-widest text-sm text-white rounded-full h-14 border border-[#FF1480]/40 hover:border-[#FF1480]/70 hover:bg-[#FF1480]/10 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer mt-2"
+                      style={{ backdropFilter: "blur(12px)", background: "rgba(255,20,128,0.08)" }}
                     >
                       {status === "sending" ? "SENDING..." : "SEND INQUIRY"}
                     </button>

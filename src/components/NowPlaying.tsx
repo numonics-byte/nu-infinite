@@ -41,7 +41,7 @@ export default function NowPlaying() {
         className="relative overflow-hidden rounded-2xl md:rounded-3xl border-3 md:border-4 border-[#FF1480] px-4 md:px-5 py-3 md:py-4 backdrop-blur-2xl"
         style={{
           background: "rgba(9, 9, 14, 0.92)",
-          boxShadow: "0 0 30px rgba(255,20,128,0.45), 0 0 60px rgba(136,0,255,0.25), 6px 6px 0 #FFD700",
+          boxShadow: "0 0 30px rgba(255,20,128,0.35), 6px 6px 0 rgba(255,215,0,0.5)",
         }}
       >
         {/* Subtle inner pattern */}
@@ -96,7 +96,7 @@ export default function NowPlaying() {
             <button
               onClick={playPrev}
               aria-label="Previous track"
-              className="text-white/40 hover:text-[#39FF14] transition-colors cursor-pointer hover:scale-110"
+              className="text-white/40 hover:text-[#FFD700] transition-colors cursor-pointer hover:scale-110"
             >
               <SkipBack size={22} fill="currentColor" />
             </button>
@@ -116,7 +116,7 @@ export default function NowPlaying() {
             <button
               onClick={playNext}
               aria-label="Next track"
-              className="text-white/40 hover:text-[#39FF14] transition-colors cursor-pointer hover:scale-110"
+              className="text-white/40 hover:text-[#FFD700] transition-colors cursor-pointer hover:scale-110"
             >
               <SkipForward size={22} fill="currentColor" />
             </button>
