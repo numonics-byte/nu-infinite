@@ -38,16 +38,7 @@ export default function Hero() {
         className="relative mt-auto px-6 md:px-12 pb-20 md:pb-28 pt-36 text-center max-w-7xl mx-auto w-full"
         style={{ zIndex: 4 }}
       >
-        {/* Genre badge */}
-        <div className="inline-flex items-center gap-3 bg-[#39FF14] border-4 border-[#39FF14] rounded-full px-6 py-2 mb-8">
-          <span
-            className="w-2 h-2 rounded-full bg-white animate-pulse-glow"
-            aria-hidden="true"
-          />
-          <span className="font-heading font-black uppercase tracking-[0.4em] text-white text-xs md:text-sm">
-            DRUM &amp; BASS
-          </span>
-        </div>
+
 
         {/* Hero heading — three stacked lines */}
         <h1 className="font-heading font-black uppercase leading-none tracking-tighter mb-8">
