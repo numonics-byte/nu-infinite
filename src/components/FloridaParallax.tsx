@@ -34,8 +34,14 @@ export default function FloridaParallax() {
       const section = sectionRef.current;
       if (!section) return;
       const rect    = section.getBoundingClientRect();
-      const entered = Math.max(0, window.innerHeight - rect.top);
-      const progress = Math.min(1, entered / (window.innerHeight + section.offsetHeight));
+      // Only start parallax once the ENTIRE section is visible
+      // (rect.bottom <= viewportHeight means the bottom edge is on-screen)
+      const fullyVisible = rect.bottom <= window.innerHeight;
+      const scrolledPast = fullyVisible
+        ? window.innerHeight - rect.bottom  // how far past fully-visible
+        : 0;
+      const entered  = Math.max(0, scrolledPast);
+      const progress = Math.min(1, entered / section.offsetHeight);
 
       LAYER_CONFIG.forEach((cfg, i) => {
         targetY.current[i] = -entered * cfg.speed;
