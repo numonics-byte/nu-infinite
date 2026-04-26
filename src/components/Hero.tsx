@@ -1,14 +1,18 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
 
       {/* ── Background: hero image ── */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/hero.png"
+      <Image
+        src="/hero.jpg"
         alt=""
+        fill
+        priority
+        sizes="100vw"
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="object-cover object-center"
         style={{ zIndex: 0 }}
       />
 
